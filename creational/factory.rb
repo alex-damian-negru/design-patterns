@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
+# Factory Method is a creational design pattern that provides an interface for creating objects in a superclass,
+# but allows subclasses to alter the type of objects that will be created.
+# Reference: https://refactoring.guru/design-patterns/factory-method
+
 module Notifications
   module Entities
     class Notification
-      # @return [String]
+      # @raise [NotImplementedError]
       def content = raise NotImplementedError
     end
 
@@ -20,10 +24,9 @@ module Notifications
 
   module Creators
     class Creator
-      # @return [Notifications::Entities::Notification]
+      # @raise [NotImplementedError]
       def notification = raise NotImplementedError
 
-      # @return [nil]
       def submit = puts notification.content
     end
 
