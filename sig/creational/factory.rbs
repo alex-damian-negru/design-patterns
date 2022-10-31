@@ -1,0 +1,35 @@
+module Notifications
+  module Entities
+    class Notification
+      def content: () -> String
+    end
+
+    class Push < Notification
+      def content: () -> String
+    end
+
+    class Email < Notification
+      def content: () -> String
+    end
+  end
+
+  module Creators
+    class Creator
+      def notification: () -> Entities::Notification
+
+      def submit: () -> void
+    end
+
+    class Push < Creator
+      def notification: () -> Entities::Push
+    end
+
+    class Email < Creator
+      def notification: () -> Entities::Email
+    end
+  end
+end
+
+class Object
+  def notify: (Notifications::Creators::Creator creator) -> void
+end
