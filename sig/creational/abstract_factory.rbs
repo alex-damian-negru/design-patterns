@@ -1,0 +1,52 @@
+module Entities
+  module Chairs
+    interface _Chair
+      def message: () -> String
+      def sit_on: () -> void
+    end
+
+    class Chair
+      include _Chair
+    end
+
+    class VictorianChair < Chair
+    end
+
+    class ModernChair < Chair
+    end
+  end
+
+  module Sofas
+    interface _Sofa
+      def message: () -> String
+      def sleep_on: () -> void
+    end
+
+    class Sofa
+      include _Sofa
+    end
+
+    class VictorianSofa < Sofa
+    end
+
+    class ModernSofa < Sofa
+    end
+  end
+end
+
+module Factories
+  interface _FurnitureFactory
+    def create_chair: () -> Entities::Chairs::Chair
+    def create_sofa: () -> Entities::Sofas::Sofa
+  end
+
+  class FurnitureFactory
+    include _FurnitureFactory
+  end
+
+  class VictorianFactory < FurnitureFactory
+  end
+
+  class ModernFactory < FurnitureFactory
+  end
+end
