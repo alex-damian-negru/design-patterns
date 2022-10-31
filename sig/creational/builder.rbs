@@ -1,0 +1,69 @@
+module Entities
+  module Engines
+    class Engine
+    end
+
+    class MightyEngine < Engine
+    end
+
+    class SwiftEngine < Engine
+    end
+  end
+
+  module GPS
+    class BaseGPS
+    end
+
+    class WirelessGPS
+    end
+
+    class WiredGPS
+    end
+  end
+
+  class Car
+    attr_accessor seats: Integer
+
+    attr_accessor engine: Engines::Engine
+
+    attr_accessor gps: GPS::BaseGPS
+  end
+
+  class CarManual
+    attr_accessor seats: String
+
+    attr_accessor engine: String
+
+    attr_accessor gps: String
+  end
+end
+
+module Builders
+  class Builder
+    def initialize: () -> void
+
+    def reset: () -> (Entities::Car | Entities::CarManual)
+
+    def with_seats: (Integer seats) -> Builders::Builder
+
+    def with_engine: (Entities::Engines::Engine engine) -> Builders::Builder
+
+    def with_gps: (Entities::GPS::BaseGPS gps) -> Builders::Builder
+
+    def retrieve!: () -> (Entities::Car | Entities::CarManual)
+  end
+
+  class CarBuilder < Builder
+    def retrieve!: () -> Entities::Car
+  end
+
+  class CarManualBuilder < Builder
+    def retrieve!: () -> Entities::CarManual
+  end
+end
+
+class CarDirector
+  def build_suv: (Builders::Builder builder) -> (Entities::Car | Entities::CarManual)
+
+  def build_sports_car: (Builders::Builder builder) -> (Entities::Car | Entities::CarManual)
+end
