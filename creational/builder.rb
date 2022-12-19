@@ -113,11 +113,11 @@ car_director = CarDirector.new
 car_builder = Builders::CarBuilder.new
 car_manual_builder = Builders::CarManualBuilder.new
 
-puts "Car"
+puts 'Car'
 p car_director.build_suv(car_builder)
 p car_director.build_suv(car_manual_builder)
 puts "\n"
 
-puts "Car Manual"
+puts 'Car Manual'
 p car_director.build_sports_car(car_builder)
 p car_director.build_sports_car(car_manual_builder)
