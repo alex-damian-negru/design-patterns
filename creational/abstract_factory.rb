@@ -2,7 +2,8 @@
 
 # Abstract Factory is a creational design pattern that lets you produce families of related objects
 # without specifying their concrete classes.
-# @see: https://refactoring.guru/design-patterns/abstract-factory
+#
+# @see https://refactoring.guru/design-patterns/abstract-factory
 module Entities
   module Chairs
     class Chair
