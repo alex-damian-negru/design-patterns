@@ -1,0 +1,13 @@
+class XmlClient
+  def initialize: (String xml) -> void
+end
+
+class XmlToJsonAdapter < XmlClient
+  def initialize: (String xml) -> void
+
+  def execute: () -> void
+end
+
+class JsonService
+  def execute: (String json) -> void
+end
