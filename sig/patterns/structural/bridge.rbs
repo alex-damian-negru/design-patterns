@@ -1,0 +1,35 @@
+class SomeOperation
+  def call: -> void
+end
+
+class Remote
+  @device: Radio | TV
+
+  def toggle_power: -> void
+  def volume_up: -> void
+  def volume_down: -> void
+  def channel_up: -> void
+  def channel_down: -> void
+end
+
+class AdvancedRemote < Remote
+  def mute: -> void
+end
+
+class Device
+  @enabled: bool
+
+  @volume: Integer
+  attr_accessor volume: Integer
+
+  @channel: Integer
+  attr_accessor channel: Integer
+
+  def toggle_power: -> void
+end
+
+class Radio < Device
+end
+
+class TV < Device
+end
